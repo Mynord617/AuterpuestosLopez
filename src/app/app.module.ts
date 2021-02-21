@@ -8,6 +8,7 @@ import { SidenavComponent } from './shared/sidenav/sidenav.component';
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { InventarioListaComponent } from './components/pages/inventario-lista/inventario-lista.component';
 import { InventarioGaleriaComponent } from './components/pages/inventario-galeria/inventario-galeria.component';
+import { InventarioComponent } from './components/pages/inventario/inventario.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { InventarioGaleriaComponent } from './components/pages/inventario-galeri
     SidenavComponent,
     DashboardComponent,
     InventarioListaComponent,
-    InventarioGaleriaComponent
+    InventarioGaleriaComponent,
+    InventarioComponent,
   ],
   imports: [
     BrowserModule,

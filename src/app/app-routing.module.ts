@@ -3,29 +3,40 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { InventarioListaComponent } from './components/pages/inventario-lista/inventario-lista.component';
 import { InventarioGaleriaComponent } from './components/pages/inventario-galeria/inventario-galeria.component';
+import { InventarioComponent } from './components/pages/inventario/inventario.component';
 
 const routes: Routes = [
   {
-    path: '', 
+    path: '',
     component: DashboardComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'lista',
-    component: InventarioListaComponent
+    component: InventarioListaComponent,
   },
   {
-    path:'galeria',
-    component: InventarioGaleriaComponent
+    path: 'galeria',
+    component: InventarioGaleriaComponent,
+  },
+  {
+    path: 'inventario',
+    component: InventarioComponent
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./components/Auth/login/login.module')
+      .then((m) => m.LoginModule),
   },
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

@@ -1,6 +1,6 @@
 <div class="content">
-    <div class="row">
-        <!--
+  <div class="row">
+    <!--
       <div class="col-md-4">
         <div class="card card-user">
           <div class="image">
@@ -102,154 +102,203 @@
       </div>
     -->
 
-        <div class="col-md-8">
-            <div class="card card-user">
-                <div class="card-header">
-                    <h5 align="center" class="card-title">Agregar Producto</h5>
-                </div>
-                <div class="card-body">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-5 pr-1">
-                                <div class="form-group">
-                                    <label>Codigo Producto</label>
-                                    <input type="text" class="form-control"  placeholder="Codigo Producto"/>
-                                </div>
-                            </div>
-                            <div class="col-md-3 px-1">
-                                <div class="form-group">
-                                    <label>Nombre Producto</label>
-                                    <input type="text" class="form-control" placeholder="nombre producto"/>
-                                </div>
-                            </div>
-                            <div class="col-md-4 pl-1">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Marca</label>
-                                    <input type="email" class="form-control" placeholder="Marca" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 pr-1">
-                                <div class="form-group">
-                                    <label>Modelo</label>
-                                    <input type="text" class="form-control" placeholder="modelo"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6 pl-1">
-                                <div class="form-group">
-                                    <label>Medida (Opcional si no son lubricantes)</label>
-                                    <select id="inputState" class="form-control">
-                                        <option selected>500 ml</option>
-                                        <option selected>1/4 de galon</option>
-                                        <option selected>litro</option>
-                                        <option selected>1/2 galon</option>
-                                        <option selected>galon</option>
-                                        <option selected>cubeta</option>
-                                        <option selected>Sin Medida</option>
-                                      </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 pl-1">
-                                <div class="form-group">
-                                    <label>Año del vehiculo (Opcional)</label>
-                                    <input type="text" class="form-control" placeholder="Año vehiculo"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6 pl-1">
-                                <div class="form-group">
-                                    <label>Distribuidor (Opcional)</label>
-                                    <input type="text" class="form-control" placeholder="Distribuidor"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4 pr-1">
-                                <div class="form-group">
-                                    <label>Cantidad</label>
-                                    <input type="text" class="form-control" placeholder="Cantidad"/>
-                                </div>
-                            </div>
-                            <div class="col-md-4 px-1">
-                                <div class="form-group">
-                                    <label>Precio a la venta</label>
-                                    <input type="text" class="form-control" placeholder="Precio"/>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-4 pl-1" >
-                                <label for="inputState">Categoria</label>
-                                <select id="inputState" class="form-control">
-                                  <option selected>Accesorios</option>
-                                  <option selected>Baterias</option>
-                                  <option selected>enfriamiento</option>
-                                  <option selected>Herramientas</option>
-                                  <option selected>Limpieza y Aditivos</option>
-                                  <option selected>Llantas</option>
-                                  <option selected>Lubricantes</option>
-                                  <option selected>Repuestos</option>
-                                  <option selected>Sin Categoria</option>
-                                </select>
-                              </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Descripcion del producto</label>
-                                    <textarea class="form-control textarea" placeholder="Por favor ingrese una descripcion mas detallada del producto"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="update ml-auto mr-auto">
-                                <button type="submit" class="btn btn-primary btn-round">
-                                    Cargar Producto
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <div class="col-md-8">
+      <div class="card card-user">
+        <div class="card-header">
+          <h5 align="center" class="card-title">Agregar Producto</h5>
         </div>
-
-        <div class="col-md-4">
-            <div class="card card-user">
-                <div class="image">
-                    <img src="../assets/img/damir-bosnjak.jpg" alt="..." />
+        <div class="card-body">
+          <form [formGroup]="nuevoProducto" (ngSubmit)="agregarNuevoProducto(nuevoProducto.value)">
+            <div class="row">
+              <div class="col-md-5 pr-1">
+                <div class="form-group">
+                  <label>Codigo Producto</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Codigo Producto"
+                    formControlName="codigo"
+                  />
                 </div>
-                <div class="card-body">
-                    <div class="author">
-                        <a href="#">
-                            <img class="avatar border-gray" src="../assets/img/repuesto.jpg" alt="..." />
-                            <h5 class="title">DISCO DM-035 225M/M</h5>
-                        </a>
-                        <p class="description"></p>
-                    </div>
-                    <p class="description text-center">
-                        Disco de embrague, <br />
-                        Kit de embrague OE -<br />
-                         NUMÉRO MD802131 
-                   
-                    </p>
+              </div>
+              <div class="col-md-3 px-1">
+                <div class="form-group">
+                  <label>Nombre Producto</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="nombre producto"
+                    formControlName="nombre"
+                  />
                 </div>
-                <div class="card-footer">
-                    <hr />
-                    <div class="button-container">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6 col-6 ml-auto">
-                                <h5>1319.40<br /><small>Precio</small></h5>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
-                                <h5>25<br /><small>vendidos</small></h5>
-                            </div>
-                            <div class="col-lg-3 mr-auto">
-                                <h5>50<br /><small>Cantidad Disponible</small></h5>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+              <div class="col-md-4 pl-1">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Marca</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Marca"
+                    formControlName="marca"
+                  />
                 </div>
+              </div>
             </div>
+            <div class="row">
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label>Modelo</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="modelo"
+                    formControlName="modelo"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label>Medida (Opcional si no son lubricantes)</label>
+                  <select id="inputState" class="form-control" formControlName="medida">
+                    <option selected value="500ml">500 ml</option>
+                    <option selected value="1/4 de galon">1/4 de galon</option>
+                    <option selected value="litro">litro</option>
+                    <option selected value="1/2 galon">1/2 galon</option>
+                    <option selected value="galon">galon</option>
+                    <option selected value="cubeta">cubeta</option>
+                    <option selected value="Sin Medida">Sin Medida</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label>Año del vehiculo (Opcional)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Año vehiculo"
+                    formControlName="anio"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label>Distribuidor (Opcional)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Distribuidor"
+                    formControlName="distribuidor"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label>Cantidad</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Cantidad"
+                    formControlName="cantidad"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4 px-1">
+                <div class="form-group">
+                  <label>Precio a la venta</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Precio"
+                    formControlName="precio"
+                  />
+                </div>
+              </div>
+              <div class="form-group col-md-4 pl-1">
+                <label for="inputState">Categoria</label>
+                <select id="inputState" class="form-control" formControlName="categoria">
+                  <option selected value="Accesorios">Accesorios</option>
+                  <option selected value="Baterias">Baterias</option>
+                  <option selected value="Enfriamiento">enfriamiento</option>
+                  <option selected value="Herramientas">Herramientas</option>
+                  <option selected value="Limpieza y Aditivos">Limpieza y Aditivos</option>
+                  <option selected value="Llantas">Llantas</option>
+                  <option selected value="Lubricantes">Lubricantes</option>
+                  <option selected value="Repuestos">Repuestos</option>
+                  <option selected value="Sin Categoria">Sin Categoria</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Descripcion del producto</label>
+                  <textarea
+                    class="form-control textarea"
+                    placeholder="Por favor ingrese una descripcion mas detallada del producto"
+                    formControlName="descripcion"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="update ml-auto mr-auto">
+                <button type="submit" class="btn btn-primary btn-round" value="Guardar">
+                  Cargar Producto
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
+
+    <div class="col-md-4">
+      <div class="card card-user">
+        <div class="image">
+          <img src="../assets/img/damir-bosnjak.jpg" alt="..." />
+        </div>
+        <div class="card-body">
+          <div class="author">
+            <a href="#">
+              <img
+                class="avatar border-gray"
+                src="../assets/img/repuesto.jpg"
+                alt="..."
+              />
+              <h5 class="title">DISCO DM-035 225M/M</h5>
+            </a>
+            <p class="description"></p>
+          </div>
+          <p class="description text-center">
+            Disco de embrague, <br />
+            Kit de embrague OE -<br />
+            NUMÉRO MD802131
+          </p>
+        </div>
+        <div class="card-footer">
+          <hr />
+          <div class="button-container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-6 ml-auto">
+                <h5>1319.40<br /><small>Precio</small></h5>
+              </div>
+              <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
+                <h5>25<br /><small>vendidos</small></h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 mr-auto">
+                <h5>50<br /><small>Cantidad Disponible</small></h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

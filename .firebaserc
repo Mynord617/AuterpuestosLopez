@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "autorepuestos-lopez": {
+      "hosting": {
+        "appInventario": [
+          "autorepuestos-lopez"
+        ]
+      }
+    }
+  }
+}

@@ -16,7 +16,6 @@ export class InventarioService {
    }
 
   public guardarProducto(producto: Producto){
-
     const productoObj = {
       codigo      : producto.codigo,
       nombre      : producto.nombre,
@@ -30,11 +29,14 @@ export class InventarioService {
       categoria   : producto.categoria,
       descripcion : producto.descripcion,
     };
-
-    return this.productosCollection.add(productoObj);
+      return this.productosCollection.add(productoObj);
   }
 
   obtenerProductos(): Observable <any>{
     return this.afs.collection('Productos').snapshotChanges();
+  }
+
+  obtenerUnProducto(codigo:InventarioService): Observable<InventarioService>{
+    return this.afs.doc<InventarioService>(`Productos/${codigo}`).valueChanges();
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { InventarioService } from '../inventario.service';
 import { Producto } from '../../models/producto.interface';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-inventario-lista',
@@ -10,11 +12,12 @@ import { Producto } from '../../models/producto.interface';
 })
 export class InventarioListaComponent implements OnInit {
 
-  constructor(private inventarioService: InventarioService) { }
+  public producto$: Observable<InventarioService>;
+  constructor(private route: ActivatedRoute, private inventarioService: InventarioService) { }
 
   productos : any[] = [];
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.obtenerProductos();
   }
 

@@ -18,7 +18,7 @@ import { AngularFireStorageModule, AngularFireStorage} from '@angular/fire/stora
 import { AngularFireModule} from '@angular/fire/';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
-import { ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { environment } from 'src/environments/environment';
 
 @NgModule({
@@ -40,7 +40,8 @@ import { environment } from 'src/environments/environment';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

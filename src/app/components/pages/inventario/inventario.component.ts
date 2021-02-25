@@ -16,19 +16,19 @@ export class InventarioComponent implements OnInit {
               private router: Router, 
               private aRoute: ActivatedRoute) { }
 
-  public nuevoProducto = new FormGroup({
-    codigo    : new FormControl('', Validators.required),
-    nombre    : new FormControl('', Validators.required),
-    marca     : new FormControl('', Validators.required),
-    modelo    : new FormControl('', Validators.required),
-    medida    : new FormControl(''),
-    anio      : new FormControl('', Validators.required),
-    distribuidor: new FormControl('', Validators.required),
-    cantidad   : new FormControl('', Validators.required),
-    precio     : new FormControl('', Validators.required),
-    categoria  : new FormControl('', Validators.required),
-    descripcion: new FormControl('', Validators.required),
-  })
+              public nuevoProducto = new FormGroup({
+                codigo    : new FormControl('', Validators.required),
+                nombre    : new FormControl('', Validators.required),
+                marca     : new FormControl('', Validators.required),
+                modelo    : new FormControl('', Validators.required),
+                medida    : new FormControl(''),
+                anio      : new FormControl('', Validators.required),
+                distribuidor: new FormControl('', Validators.required),
+                cantidad   : new FormControl('', Validators.required),
+                precio     : new FormControl('', Validators.required),
+                categoria  : new FormControl('', Validators.required),
+                descripcion: new FormControl('', Validators.required),
+              })
 
   ngOnInit(): void {
   }

@@ -21,6 +21,12 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ReactiveFormsModule} from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
+import { PrimeModule } from './prime.module';
+
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -43,6 +49,9 @@ import { environment } from 'src/environments/environment';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    PrimeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

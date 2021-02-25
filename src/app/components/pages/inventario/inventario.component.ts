@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Producto } from '../../models/producto.interface';
 import { InventarioService } from '../inventario.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-inventario',
@@ -14,7 +15,8 @@ export class InventarioComponent implements OnInit {
 
   constructor(private inventarioService: InventarioService,
               private router: Router, 
-              private aRoute: ActivatedRoute) { }
+              private aRoute: ActivatedRoute,
+              private toastr: ToastrService) { }
 
               public nuevoProducto = new FormGroup({
                 codigo    : new FormControl('', Validators.required),
@@ -35,6 +37,7 @@ export class InventarioComponent implements OnInit {
 
   agregarNuevoProducto(producto: Producto){
     this.inventarioService.guardarProducto(producto);
+    this.toastr.success('Producto agregado exitosamente', 'Estado');
     this.router.navigate(['/lista'])
   }
 

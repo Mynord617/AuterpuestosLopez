@@ -7,7 +7,7 @@ export interface Producto {
     medida?: string;
     anio   : string;
     distribuidor?: string;
-    cantidad   : Int16Array;
+    cantidad   : number;
     precio     : string;
     categoria  : string;
     descripcion: string;
